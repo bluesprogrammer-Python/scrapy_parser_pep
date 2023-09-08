@@ -15,17 +15,13 @@ class PepParsePipeline:
         self.total = 0
 
     def process_item(self, item, spider):
-        status_quantity = self.count_dir.get(item['status'])
-        if status_quantity is None:
-            self.count_dir[item['status']] = 1
-        else:
-            self.count_dir[item['status']] = status_quantity + 1
-        self.total += 1
+        status_quantity = self.count_dir.get(item['status']) or 0
+        self.count_dir[item['status']] = status_quantity + 1
         return item
 
     def close_spider(self, spider):
         with open(self.results / FILENAME, mode='w', encoding='utf-8') as f:
             f.write('Статус,Количество\n')
+            self.count_dir['Total'] = sum(self.count_dir.values())
             for status in self.count_dir.keys():
                 f.write(f'{status},{self.count_dir[status]}\n')
-            f.write(f'Total,{self.total}\n')

@@ -1,0 +1,28 @@
+number,name,status
+1,PEP Purpose and Guidelines,Active
+20,The Zen of Python,Active
+2,Procedure for Adding New Modules,Active
+7,Style Guide for C Code,Active
+4,Deprecation of Standard Modules,Active
+5,Guidelines for Language Evolution,Active
+609,Python Packaging Authority (PyPA) Governance,Active
+6,Bug Fix Releases,Active
+676,PEP Infrastructure Process,Active
+581,Using GitHub Issues for CPython,Accepted
+8,Style Guide for Python Code,Active
+387,Backwards Compatibility Policy,Active
+13,Python Language Governance,Active
+11,CPython platform support,Active
+10,Voting Guidelines,Active
+484,Type Hints,Final
+12,Sample reStructuredText PEP Template,Active
+727,Documentation Metadata in Typing,Draft
+307,Extensions to the pickle protocol,Final
+503,Simple Repository API,Final
+498,Literal String Interpolation,Final
+495,Local Time Disambiguation,Final
+520,Preserving Class Attribute Definition Order,Final
+519,Adding a file system path protocol,Final
+518,Specifying Minimum Build System Requirements for Python Projects,Final
+643,Metadata for Package Source Distributions,Final
+3109,Raising Exceptions in Python 3000,Final
