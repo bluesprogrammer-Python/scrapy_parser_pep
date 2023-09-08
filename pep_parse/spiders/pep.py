@@ -1,7 +1,8 @@
-import scrapy
 import re
+
+import scrapy
+
 from pep_parse.items import PepParseItem
-from urllib.parse import urljoin
 
 
 class PepSpider(scrapy.Spider):
@@ -12,7 +13,10 @@ class PepSpider(scrapy.Spider):
     def parse(self, response):
         all_links = response.css('a[href^="pep-"]')
         for pep_link in all_links:
-            yield response.follow(pep_link, callback=self.parse_pep)
+            pattern = r'pep-\d+'
+            link_str = pep_link.css('a').get()
+            link = re.search(pattern, link_str)
+            yield response.follow(link[0] + '/', callback=self.parse_pep)
 
     def parse_pep(self, response):
         pep_status = response.css('dt:contains("Status:") + dd')
